@@ -28,31 +28,23 @@ $movies->execute();
 $series_array = $series->fetchAll(PDO::FETCH_OBJ);
 $movies_array = $movies->fetchAll(PDO::FETCH_OBJ);
 
-function echoSeries()
-{
+function echoSeries() {
     global $series_array;
-    foreach ($series_array as $key) 
-    {
+    foreach ($series_array as $key) {
         echo 
-        '<tr>' .
-            '<td>' . $key->title . '</td>' .
-            '<td>' . $key->rating . '</td>' .
-            '<td>' . "<a href='series.php?id=$key->id'>details</a>" . '</td>' .
-        '</tr>';
+            '<tr><td>' . $key->title . 
+            '</td><td>' . $key->rating .
+            '</td><td>' . "<a href='series.php?id=$key->id'>details</a>" . '</td></tr>';
     }
 }
 
-function echoMovies()
-{
+function echoMovies() {
     global $movies_array;
-    foreach ($movies_array as $key) 
-    {
+    foreach ($movies_array as $key) {
         echo 
-        '<tr>' .
-            '<td>' . $key->title . '</td>' .
-            '<td>' . $key->duur . '</td>' .
-            '<td>' . "<a href='films.php?id=$key->id'>details</a>" . '</td>' .
-        '</tr>';
+        '<tr><td>' . $key->title .
+        '</td><td>' . $key->duur .
+        '</td><td>' . "<a href='films.php?id=$key->id'>details</a>" . '</td></tr>';
     }
 }
 
